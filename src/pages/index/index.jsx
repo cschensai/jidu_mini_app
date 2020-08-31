@@ -51,7 +51,7 @@ export default class Index extends Component {
         <WhiteSpace />
         <AtButton type="primary" onClick={this.handleGetData}>获取测试数据</AtButton>
         <View>
-          { data ? JSON.stringify(data) : '' }
+          {/* { data ? JSON.stringify(data) : '' } */}
         </View>
       </View>
     )
