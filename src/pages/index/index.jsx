@@ -15,16 +15,9 @@ import styles from './index.scss';
 
 export default class Index extends Component {
 
-  componentWillMount () {
+  componentDidMount () {
+    this.handleGetData();
   }
-
-  componentDidMount () { }
-
-  componentWillUnmount () { }
-
-  componentDidShow () { }
-
-  componentDidHide () { }
 
   handleGetData = () => {
     this.props.dispatch({

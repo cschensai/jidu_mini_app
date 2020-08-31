@@ -1,14 +1,14 @@
-import { getFun } from "./service";
+import { getSongs } from "./service";
 
 export default {
   namespace: 'index',
   state: {
-    data: null,
+    data: [],
   },
 
   effects: {
     * getData({ payload, cb }, { call, put }) {
-      const res = yield call(getFun, payload);
+      const res = yield call(getSongs, payload);
       const { info = {} } = res || {};
       cb && cb();
       yield put({
