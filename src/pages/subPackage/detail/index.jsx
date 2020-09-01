@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import Taro, { getCurrentInstance } from '@tarojs/taro';
-import { View } from '@tarojs/components';
+import { View, RichText, Audio } from '@tarojs/components';
 import { connect } from 'react-redux';
 import styles from './index.scss'
 
@@ -40,8 +40,8 @@ class Detail extends Component {
     `;
     return (
       <View className={styles.detail}>
-        <audio src={link} name={audioName} controls></audio>
-        <rich-text nodes={node}></rich-text>
+        <Audio src={link} name={audioName} controls />
+        <RichText nodes={node}></RichText>
       </View>
     )
   }

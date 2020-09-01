@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components'
-import { AtIndexes } from 'taro-ui'
+import AtIndexes from 'taro-ui/lib/components/indexes';
 import { connect } from 'react-redux';
 import styles from './index.scss';
 
