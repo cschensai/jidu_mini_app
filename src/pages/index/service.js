@@ -1,6 +1,6 @@
 import taroRequest from '../../utils/request'
 
-export function getFun(data) {
+export function getSongsAction(data) {
   return taroRequest({
     url: '/songs',
     method: 'GET',

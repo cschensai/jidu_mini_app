@@ -1,51 +1,41 @@
 import React, { Component } from 'react'
-import Taro from '@tarojs/taro'
+import Taro from '@tarojs/taro';
 import { View } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { AtIndexes } from 'taro-ui'
 import { connect } from 'react-redux';
-import WhiteSpace from '../../components/WhiteSpace';
-import { tips } from '../../utils/tips';
 import styles from './index.scss';
 
 @connect(({ index }) => {
+  const { data = [] } = index;
   return {
-    data: index.data,
+    data,
   };
 })
 
 export default class Index extends Component {
-
-  componentDidMount () {
-    this.handleGetData();
-  }
-
-  handleGetData = () => {
+  getSongs = () => {
+    Taro.showLoading({ title: '加载中...', mask: true });
     this.props.dispatch({
-      type: 'index/getData',
-      payload: {
-        type: 'recent',
-        page: 1,
-      },
+      type: 'index/getSongs',
       cb() {
-        tips.showSuccessToast('获取数据成功');
+        Taro.hideLoading();
       },
     })
   }
-  handleNavigate = () => {
+  componentDidMount () {
+    this.getSongs();
+  }
+  handleNavigate = item => {
     Taro.navigateTo({
-      url: '/pages/test/index'
+      url: `/pages/detail/index?songId=${item.value}&name=${encodeURI(item.name)}`,
     });
   }
+
   render () {
     const { data } = this.props;
     return (
       <View className={styles.index}>
-        <AtButton type="primary" onClick={this.handleNavigate}>跳转测试页面</AtButton>
-        <WhiteSpace />
-        <AtButton type="primary" onClick={this.handleGetData}>获取测试数据</AtButton>
-        <View>
-          {/* { data ? JSON.stringify(data) : '' } */}
-        </View>
+        <AtIndexes list={data} onClick={this.handleNavigate} />
       </View>
     )
   }
