@@ -9,5 +9,5 @@ export default {
     navigationBarTitleText: 'WeChat',
     navigationBarTextStyle: 'black'
   },
-  requiredBackgroundModes: true,
+  requiredBackgroundModes: ['audio'],
 }
