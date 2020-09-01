@@ -27,7 +27,7 @@ export default class Index extends Component {
   }
   handleNavigate = item => {
     Taro.navigateTo({
-      url: `/pages/detail/index?songId=${item.value}&name=${encodeURI(item.name)}`,
+      url: `/pages/subPackage/detail/index?songId=${item.value}&name=${encodeURI(item.name)}`,
     });
   }
 
